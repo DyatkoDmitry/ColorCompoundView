@@ -19,12 +19,12 @@ class ColorPick @JvmOverloads constructor(
         LayoutInflater.from(context).inflate(R.layout.color_pick,this,true)
 
         setButtonsListeners()
+        updateState()
+    }
 
+    private fun updateState(){
         showCurrentColor()
-
-        val hex = "#" + Integer.toHexString(colors[currentColor]).toUpperCase().substring(2)
-        findViewById<TextView>(R.id.hex).setText(hex)
-
+        showHex()
     }
 
     private fun showCurrentColor(){
@@ -40,15 +40,13 @@ class ColorPick @JvmOverloads constructor(
         findViewById<Button>(R.id.next).setOnClickListener {
             currentColor++
             if (currentColor == colors.size) currentColor = 0
-            findViewById<View>(R.id.selected_color).setBackgroundColor(colors[currentColor])
-            showHex()
+            updateState()
         }
 
         findViewById<Button>(R.id.previous).setOnClickListener {
             currentColor--
             if (currentColor == -1) currentColor = colors.size - 1
-            findViewById<View>(R.id.selected_color).setBackgroundColor(colors[currentColor])
-            showHex()
+            updateState()
         }
     }
 

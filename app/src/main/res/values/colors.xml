@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="green">#8BC34A</color>
+    <color name="orange">#EF7E32</color>
+    <color name="pink">#FF1493</color>
+    <color name="tomato">#FF6347</color>
+    <color name="gold">#FFD700</color>
+    <color name="lavender">#E6E6FA</color>
+    <color name="blue_violet">#8A2BE2</color>
+    <color name="green_yellow">#ADFF2F</color>
+    <color name="aquamarine">#7FFFD4</color>
+    <color name="sienna">#A0522D</color>
+    <color name="silver">#C0C0C0</color>
+    <color name="azure">#F0FFFF</color>
+
+    <array name="pick_colors">
+        <item>@color/green</item>
+        <item>@color/azure</item>
+        <item>@color/gold</item>
+        <item>@color/orange</item>
+        <item>@color/black</item>
+        <item>@color/pink</item>
+        <item>@color/sienna</item>
+        <item>@color/tomato</item>
+        <item>@color/lavender</item>
+        <item>@color/blue_violet</item>
+    </array>
+
+</resources>

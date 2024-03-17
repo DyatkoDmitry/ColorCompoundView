@@ -1,6 +1,8 @@
 package com.example.colorcompoundview
 
 import android.content.Context
+import android.os.Bundle
+import android.os.Parcelable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -60,6 +62,23 @@ class ColorPick @JvmOverloads constructor(
     fun getPreviousColor():Int{
         findViewById<Button>(R.id.previous).performClick()
         return colors[currentColor]
+    }
+
+    override fun onSaveInstanceState(): Parcelable? {
+        return Bundle().apply{
+            putInt(AppConst.CURRENT_COLOR, currentColor)
+            putParcelable(AppConst.SUPER_STATE, super.onSaveInstanceState())
+        }
+    }
+
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        if (state is Bundle){
+            currentColor = state.getInt(AppConst.CURRENT_COLOR)
+            super.onRestoreInstanceState(state.getParcelable(AppConst.SUPER_STATE))
+        } else {
+            super.onRestoreInstanceState(state)
+        }
+        updateState()
     }
 }
 
